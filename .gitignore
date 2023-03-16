@@ -476,3 +476,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 docker-compose.yml
+LoginPage/LoginPage.Api/Secrets.json
