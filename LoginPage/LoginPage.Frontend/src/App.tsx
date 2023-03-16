@@ -8,7 +8,6 @@ function App() {
 
   useEffect(() => {
     fetchUsers();
-    //console.log(users);
   }, [])
 
   const fetchUsers = () => {
