@@ -12,5 +12,5 @@ using LoginPage.Api.Models;
         {
         }
 
-        public DbSet<LoginPage.Api.Models.User> User { get; set; } = default!;
+        public DbSet<User>? Users { get; set; }
     }

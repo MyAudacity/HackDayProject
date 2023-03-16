@@ -9,5 +9,5 @@ public class User
     public required string Password { get; set; }
     [Display(Name = "Email")]
     [EmailAddress(ErrorMessage = "Invalid email address")]
-    public required string Email { get; set; }
+    public string? Email { get; set; }
 }
