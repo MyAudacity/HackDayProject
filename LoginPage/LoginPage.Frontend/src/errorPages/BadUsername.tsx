@@ -8,7 +8,7 @@ const BadUsername = () => {
 
     return (
         <div>
-            <h1>Username already in use</h1>
+            <h1 className="errorMessage">Username already in use</h1>
         </div>
     );
 }

@@ -8,7 +8,7 @@ const BadPassword = () => {
 
     return (
         <div>
-            <h1>Passwords do not match</h1>
+            <h1 className="errorMessage">Passwords do not match</h1>
         </div>
     );
 }

@@ -8,7 +8,7 @@ const OhOk = () => {
 
     return (
         <div>
-            <h1>Oh, okay then :(</h1>
+            <h1 className="errorMessage">Oh, okay then :(</h1>
         </div>
     );
 }

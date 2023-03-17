@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Link, Route, Routes} from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import { Users } from "../types/stateTypes";
 import Views from "./Views";
 
@@ -8,17 +8,30 @@ type NavProps = {
     userLoggedIn: boolean;
 }
 
-const NavigationBar:FC<NavProps> = (props) => {
-    return(
+const NavigationBar: FC<NavProps> = (props) => {
+    return (
         <nav>
             <div className="links">
-            <Link to={'/'}> Home </Link>
-            <Link to={'/LogIn'}> Log In </Link>
-            <Link to={'/RegisterForm'}> Register </Link>
-            <Link to={'/Account'}> Account </Link>
+
+                <div className="linkity">
+                    <Link to={'/'} className="link"> Home </Link>
+                </div>
+
+                <div className="linkity">
+                    <Link to={'/LogIn'} className="link"> Log In </Link>
+                </div>
+
+                <div className="linkity">
+                    <Link to={'/RegisterForm'} className="link"> Register </Link>
+                </div>
+
+                <div className="linkity">
+                    <Link to={'/Account'} className="link"> Account </Link>
+                </div>
+
             </div>
             <div className="view">
-            <Views/>
+                <Views />
             </div>
         </nav>
     );
