@@ -96,13 +96,14 @@ namespace LoginPage.Api.Controllers
         }
 
         // DELETE: api/Users/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
+        [HttpDelete("{username}")]
+        public async Task<IActionResult> DeleteUser(string username)
         {
             if (_context.Users == null)
             {
                 return NotFound();
             }
+            var id = await _context.Users.Where(u => u.Username == username).Select(u => u.Id).FirstOrDefaultAsync();
             var user = await _context.Users.FindAsync(id);
             if (user == null)
             {

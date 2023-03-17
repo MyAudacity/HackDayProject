@@ -1,9 +1,13 @@
-import { FC, useEffect, useState } from 'react'
-import { Users } from '../types/stateTypes'
-import LoginForm from './LoginForm'
+import { createContext, FC, useEffect, useState } from 'react'
+import { User, Users } from '../types/stateTypes'
+import NavigationBar from './Navigation'
+
+export const UserContext = createContext({ });
 
 const LoginPage: FC = () => {
-    const [users, setUsers] = useState<Users>([])
+    const [users, setUsers] = useState<Users>([]);
+    const [userLoggedIn, setUserLoggedIn] = useState(false);
+    const [user, setUser] = useState<User>();
 
     useEffect(() => {
         getUsers();
@@ -19,11 +23,12 @@ const LoginPage: FC = () => {
     }
 
     return (
+        <UserContext.Provider value={{users, setUsers, userLoggedIn, setUserLoggedIn, user, setUser}}>
         <div>
-            {
-                users && <LoginForm users={users} />
-            }
+            <NavigationBar users={users} userLoggedIn={userLoggedIn} />
         </div>
+        </UserContext.Provider>
+
     )
 }
 

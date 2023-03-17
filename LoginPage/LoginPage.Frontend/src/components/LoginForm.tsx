@@ -1,66 +1,67 @@
-import { FC, SyntheticEvent, useEffect, useState } from 'react'
+import { FC, SyntheticEvent, useContext, useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom';
 import { User, Users } from '../types/stateTypes'
+import { UserContext } from './LoginPage';
 
-type LoginFormProps = {
-    users: Users,
-}
-
-const LoginForm: FC<LoginFormProps> = (props) => {
-    //const [users, setUsers] = useState<Users>([])
+const LoginForm: FC = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const { users, setUserLoggedIn, setUser } = useContext(UserContext);
+
+
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const onFormSubmit = (e: SyntheticEvent) => {
         e.preventDefault();
-        const user = checkIfUserExists(props.users, username);
-        if (!checkUserPassword(user)){
-            console.log("Incorrect Password")
-            throw new Error;
+        const user = checkIfUserExists(users, username);
+        if (!checkUserPassword(user)) {
+            setUserLoggedIn(false);
+            navigate('/NotFound');
+            return null;
         }
-        console.log("Welcome!");
-    }
-    
-    const checkUserPassword = (user : User) =>
-    {
-        if (user.password == password) {
-            return true;
-        }
-        return false;
+        setUserLoggedIn(true);
+        setUser(user);
+        navigate('/Account');
+        return null;
     }
 
-    const checkIfUserExists = (users : Users, username : string) => {
-        const user = users.find(user => user.username === username);
+    const checkUserPassword = (user: User | null | undefined) => {
+        if (user?.password == password) {
+            return user;
+        }
+        return null;
+    }
+
+    const checkIfUserExists = (users: Users, username: string) => {
+        const user = users.find(user => user.username == username);
         if (user) {
             return user;
         }
-        console.log("No such user exists");
-        throw new Error();
+        return null;
     }
 
     return (
         <>
-        {console.log(props)}
-        <form onSubmit={onFormSubmit}>
-            <label>Username: </label>
-            <input onChange={(e) => {
-                setUsername(e.target.value);
-            }} type='text' placeholder='Enter Username'>
-            </input>
-            <br></br>
+            <form onSubmit={onFormSubmit}>
+                <label>Username: </label>
+                <input onChange={(e) => {
+                    setUsername(e.target.value);
+                }} type='text' placeholder='Enter Username'>
+                </input>
+                <br></br>
 
-            <label>Password: </label>
-            <input onChange={(e) => {
-                setPassword(e.target.value);
-            }} type='password' placeholder='Enter Password'>
-            </input>
-            <br></br>
+                <label>Password: </label>
+                <input onChange={(e) => {
+                    setPassword(e.target.value);
+                }} type='password' placeholder='Enter Password'>
+                </input>
+                <br></br>
 
-            <input type='submit' value='Submit'></input>
-        </form>
+                <input type='submit' value='Submit'></input>
+            </form>
         </>
     )
 }
 
 export default LoginForm
-
-//0 {id: 1, username: 'wbargh0', password: '2XDuH9hg4VW', email: null}
