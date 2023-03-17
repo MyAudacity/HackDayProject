@@ -3,9 +3,13 @@ At Hackday organised by </salt> where participants were tasked with writing a fu
 
 # Technologies
 SqlServer
+
 EntityFramework
+
 ASP.NET Core Web APIs
+
 React (Typescript)
+
 
 # Future Additions
 In the future, I would like to hide the passwords, add proper authentication, handle log in state in a better way as well as add extra funcionality, like being able to log out, for example.
