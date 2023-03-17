@@ -1,7 +1,5 @@
-import { FC, SyntheticEvent, useContext, useEffect, useState } from 'react'
-import { Link, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import App from '../App';
-import NotFound from '../errorPages/NotFound';
+import { FC, SyntheticEvent, useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { User, Users } from '../types/stateTypes'
 import { UserContext } from './LoginPage';
 
@@ -26,20 +24,20 @@ const RegisterForm: FC = () => {
             return null;
         }
         postUser();
-        const newUser : Partial<User> = {
+        const newUser: Partial<User> = {
             username: username,
             password: password
-        } 
-        setUsers((prev : Users) => ([...prev, newUser]))
+        }
+        setUsers((prev: Users) => ([...prev, newUser]))
         navigate('/LogIn');
         return null;
     }
 
-        const postUser = () => {
+    const postUser = () => {
         fetch('http://localhost:5076/api/users', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({username, password}),
+            body: JSON.stringify({ username, password }),
         })
     }
 
@@ -59,32 +57,30 @@ const RegisterForm: FC = () => {
     }
 
     return (
-        <>
-            <form className='form' onSubmit={onFormSubmit}>
-                <label>Username: </label>
-                <input onChange={(e) => {
-                    setUsername(e.target.value);
-                }} type='text' placeholder='Enter Username'>
-                </input>
-                <br></br>
+        <form className='form' onSubmit={onFormSubmit}>
+            <label>Username: </label>
+            <input onChange={(e) => {
+                setUsername(e.target.value);
+            }} type='text' placeholder='Enter Username'>
+            </input>
+            <br></br>
 
-                <label>Password: </label>
-                <input onChange={(e) => {
-                    setPassword(e.target.value);
-                }} type='password' placeholder='Enter Password'>
-                </input>
-                <br></br>
+            <label>Password: </label>
+            <input onChange={(e) => {
+                setPassword(e.target.value);
+            }} type='password' placeholder='Enter Password'>
+            </input>
+            <br></br>
 
-                <label>Repeat password: </label>
-                <input onChange={(e) => {
-                    setPasswordRepeat(e.target.value);
-                }} type='password' placeholder='Repeat Password'>
-                </input>
-                <br></br>
+            <label>Repeat password: </label>
+            <input onChange={(e) => {
+                setPasswordRepeat(e.target.value);
+            }} type='password' placeholder='Repeat Password'>
+            </input>
+            <br></br>
 
-                <input type='submit' value='Submit'></input>
-            </form>
-        </>
+            <input type='submit' value='Submit'></input>
+        </form>
     )
 }
 

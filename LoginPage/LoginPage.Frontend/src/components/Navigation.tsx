@@ -1,14 +1,9 @@
 import { FC } from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Users } from "../types/stateTypes";
 import Views from "./Views";
 
-type NavProps = {
-    users: Users,
-    userLoggedIn: boolean;
-}
-
-const NavigationBar: FC<NavProps> = (props) => {
+const NavigationBar: FC = () => {
     return (
         <nav>
             <div className="links">

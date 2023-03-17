@@ -67,20 +67,11 @@ body {
   box-shadow: 1px;
 }
 
-.link {
+.link, .homeParagraph, .errorMessage, .greeting {
   color:rgb(200, 255, 0);
 }
 
 .link:hover {
   color:rgb(0, 255, 55);
 }
-
-.homeParagraph {
-  color:rgb(200, 255, 0);
-}
-
-.errorMessage {
-  color:rgb(200, 255, 0);
-}
-
 

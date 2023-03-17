@@ -1,13 +1,10 @@
 import { SyntheticEvent, useContext, useEffect } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
-import { User, Users } from "../types/stateTypes";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "./LoginPage";
 
 const Account = () => {
     const { users, setUsers, userLoggedIn, setUserLoggedIn, user } = useContext(UserContext);
     const navigate = useNavigate();
-
-
 
     const deleteUser = (username:string) => {
         fetch(`http://localhost:5076/api/Users/${username}`, {
@@ -30,7 +27,7 @@ const Account = () => {
     return (
         <div>
             <div>
-                <h1>Hello, {user.username}</h1>
+                <h1 className="greeting">Hello, {user.username}</h1>
             </div>
             <div>
                 <button onClick={handleClick} type="submit" placeholder="Delete User">Delete User</button>

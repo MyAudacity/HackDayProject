@@ -7,9 +7,7 @@ const NotFound = () => {
     }, 2000);
 
     return (
-        <div>
-            <h1 className="errorMessage">Not Found</h1>
-        </div>
+        <h1 className="errorMessage">Not Found</h1>
     );
 }
 

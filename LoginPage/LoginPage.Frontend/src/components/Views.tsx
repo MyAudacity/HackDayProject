@@ -1,4 +1,4 @@
-import { createContext, FC, useState } from "react";
+import { FC } from "react";
 import { Route, Routes } from "react-router-dom";
 import Account from "./Account";
 import Home from "./Home";

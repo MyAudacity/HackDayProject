@@ -1,15 +1,13 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const BadPassword = () => {
     const navigate = useNavigate();
     setTimeout(() => {
-        navigate('/');
+        navigate('/RegisterForm');
     }, 2000);
 
     return (
-        <div>
-            <h1 className="errorMessage">Passwords do not match</h1>
-        </div>
+        <h1 className="errorMessage">Passwords do not match</h1>
     );
 }
 

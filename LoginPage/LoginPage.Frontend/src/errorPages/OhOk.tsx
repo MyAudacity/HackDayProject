@@ -7,9 +7,7 @@ const OhOk = () => {
     }, 2000);
 
     return (
-        <div>
-            <h1 className="errorMessage">Oh, okay then :(</h1>
-        </div>
+        <h1 className="errorMessage">Oh, okay then :(</h1>
     );
 }
 

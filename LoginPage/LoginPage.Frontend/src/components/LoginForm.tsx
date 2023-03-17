@@ -10,7 +10,7 @@ const LoginForm: FC = () => {
 
 
     const navigate = useNavigate();
-    const location = useLocation();
+    //const location = useLocation();
 
     const onFormSubmit = (e: SyntheticEvent) => {
         e.preventDefault();
@@ -42,25 +42,23 @@ const LoginForm: FC = () => {
     }
 
     return (
-        <>
-            <form className='form' onSubmit={onFormSubmit}>
-                <label>Username: </label>
-                <input onChange={(e) => {
-                    setUsername(e.target.value);
-                }} type='text' placeholder='Enter Username'>
-                </input>
-                <br></br>
+        <form className='form' onSubmit={onFormSubmit}>
+            <label>Username: </label>
+            <input onChange={(e) => {
+                setUsername(e.target.value);
+            }} type='text' placeholder='Enter Username'>
+            </input>
+            <br></br>
 
-                <label>Password: </label>
-                <input onChange={(e) => {
-                    setPassword(e.target.value);
-                }} type='password' placeholder='Enter Password'>
-                </input>
-                <br></br>
+            <label>Password: </label>
+            <input onChange={(e) => {
+                setPassword(e.target.value);
+            }} type='password' placeholder='Enter Password'>
+            </input>
+            <br></br>
 
-                <input type='submit' value='Submit'></input>
-            </form>
-        </>
+            <input type='submit' value='Submit'></input>
+        </form>
     )
 }
 

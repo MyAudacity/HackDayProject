@@ -2,7 +2,7 @@ import { createContext, FC, useEffect, useState } from 'react'
 import { User, Users } from '../types/stateTypes'
 import NavigationBar from './Navigation'
 
-export const UserContext = createContext({ });
+export const UserContext = createContext({});
 
 const LoginPage: FC = () => {
     const [users, setUsers] = useState<Users>([]);
@@ -23,13 +23,11 @@ const LoginPage: FC = () => {
     }
 
     return (
-        <UserContext.Provider value={{users, setUsers, userLoggedIn, setUserLoggedIn, user, setUser}}>
-        <div className='navBar'>
-            <NavigationBar users={users} userLoggedIn={userLoggedIn} />
-        </div>
-        
+        <UserContext.Provider value={{ users, setUsers, userLoggedIn, setUserLoggedIn, user, setUser }}>
+            <div className='navBar'>
+                <NavigationBar users={users} userLoggedIn={userLoggedIn} />
+            </div>
         </UserContext.Provider>
-
     )
 }
 
