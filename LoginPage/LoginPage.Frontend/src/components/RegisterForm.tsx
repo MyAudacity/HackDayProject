@@ -60,7 +60,7 @@ const RegisterForm: FC = () => {
 
     return (
         <>
-            <form onSubmit={onFormSubmit}>
+            <form className='form' onSubmit={onFormSubmit}>
                 <label>Username: </label>
                 <input onChange={(e) => {
                     setUsername(e.target.value);

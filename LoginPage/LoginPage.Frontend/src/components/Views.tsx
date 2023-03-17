@@ -12,20 +12,22 @@ import BadPassword from "../errorPages/BadPassword";
 
 const Views: FC = () => {
     return (
-        <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/LogIn' element={<LoginForm />} />
-            <Route path='/RegisterForm' element={<RegisterForm />} />
+        <div className="bigViews">
+            <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/LogIn' element={<LoginForm />} />
+                <Route path='/RegisterForm' element={<RegisterForm />} />
 
-            <Route element={<ProtectedRoutes/>} >
-                <Route path='/Account' element={<Account />} />
-             </Route>
+                <Route element={<ProtectedRoutes />} >
+                    <Route path='/Account' element={<Account />} />
+                </Route>
 
-            <Route path='/NotFound' element={<NotFound />} />
-            <Route path='/BadUsername' element={<BadUsername />} />
-            <Route path='/BadPassword' element={<BadPassword />} />
-            <Route path='/Account/OhOk' element={<OhOk />} />
-        </Routes>
+                <Route path='/NotFound' element={<NotFound />} />
+                <Route path='/BadUsername' element={<BadUsername />} />
+                <Route path='/BadPassword' element={<BadPassword />} />
+                <Route path='/Account/OhOk' element={<OhOk />} />
+            </Routes>
+        </div>
     );
 }
 

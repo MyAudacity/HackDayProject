@@ -24,9 +24,10 @@ const LoginPage: FC = () => {
 
     return (
         <UserContext.Provider value={{users, setUsers, userLoggedIn, setUserLoggedIn, user, setUser}}>
-        <div>
+        <div className='navBar'>
             <NavigationBar users={users} userLoggedIn={userLoggedIn} />
         </div>
+        
         </UserContext.Provider>
 
     )

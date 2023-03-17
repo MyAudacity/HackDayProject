@@ -11,11 +11,15 @@ type NavProps = {
 const NavigationBar:FC<NavProps> = (props) => {
     return(
         <nav>
+            <div className="links">
             <Link to={'/'}> Home </Link>
             <Link to={'/LogIn'}> Log In </Link>
             <Link to={'/RegisterForm'}> Register </Link>
             <Link to={'/Account'}> Account </Link>
+            </div>
+            <div className="view">
             <Views/>
+            </div>
         </nav>
     );
 }
